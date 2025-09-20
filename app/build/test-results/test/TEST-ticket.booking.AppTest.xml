@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ticket.booking.AppTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-09-17T08:41:34" hostname="DESKTOP-EQ55Q8H" time="0.004">
+<testsuite name="ticket.booking.AppTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-09-20T09:26:59" hostname="DESKTOP-EQ55Q8H" time="0.024">
   <properties/>
-  <testcase name="appExists" classname="ticket.booking.AppTest" time="0.004"/>
+  <testcase name="appExists" classname="ticket.booking.AppTest" time="0.024"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

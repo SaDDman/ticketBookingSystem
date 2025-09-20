@@ -18,7 +18,7 @@ public class App {
     public static void main(String[] args) {
         System.out.println("Running Train Booking System");
         Scanner scanner = new Scanner(System.in);
-        int option = 0;
+        int option = 0, flag = 0 ;
         UserBookingService userBookingService;
         try{
             userBookingService = new UserBookingService();
@@ -33,18 +33,33 @@ public class App {
         String selectedDestination = null; // extra 
         while(option!=7){ 
             System.out.println("Choose option");
-            System.out.println("1. Sign up");
-            System.out.println("2. Login");
-            System.out.println("3. Fetch Bookings");
-            System.out.println("4. Search Trains");
-            System.out.println("5. Book a Seat");
-            System.out.println("6. Cancel my Booking");
-            System.out.println("7. Exit the App");
+            if(flag==0) 
+            {
+                System.out.println("1. Sign up");
+                System.out.println("2. Login");
+                System.out.println("3. Fetch Bookings");
+                System.out.println("4. Search Trains");
+                System.out.println("5. Book a Seat");
+                System.out.println("6. Cancel my Booking");
+                System.out.println("7. Exit the App");
+            }
+            else 
+            {
+                System.out.println("1. Log Out");
+                System.out.println("2. Fetch Bookings");
+                System.out.println("3. Search Trains");
+                System.out.println("4. Book a Seat");
+                System.out.println("5. Cancel my Booking");
+                System.out.println("6. Exit the App");
+            }
             option = scanner.nextInt();
 
+            if(option >= 2 && flag == 1)  option++;
             switch (option)
             {
                 case 1:
+                if(flag==0)
+                {
                     System.out.println(" ");
                     System.out.println("Enter the username to signup");
                     String nameToSignUp = scanner.next(); System.out.println(" ");
@@ -56,6 +71,11 @@ public class App {
                     new ArrayList<>(), UUID.randomUUID().toString());
 
                     userBookingService.signUp(userToSignup);
+                }
+                else {
+                    System.out.println("You have successfully logged out of your account!");
+                    flag = 0 ; 
+                }
                     break;
                 case 2:
                     System.out.println(" ");
@@ -78,7 +98,7 @@ public class App {
                         Boolean loginSuccessful = loginService.loginUser();
                         
                         if(loginSuccessful) {
-                            System.out.println(" ");
+                            System.out.println(" "); flag = 1; 
                             System.out.println("Login successful! Welcome " + nameToLogin);
                             userBookingService = loginService; // Use this service for the session
                         } else {
