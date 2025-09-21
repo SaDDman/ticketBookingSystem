@@ -23,8 +23,6 @@ public class App {
         try{
             userBookingService = new UserBookingService();
         }catch(IOException ex){
-            // System.out.println("There is something wrong: " + ex.getMessage());
-            // ex.printStackTrace();
             System.out.println("There is something wrong");
             return;
         }
@@ -32,26 +30,17 @@ public class App {
         String selectedSource = null; // extra 
         String selectedDestination = null; // extra 
         while(option!=7){ 
-            System.out.println("Choose option");
-            if(flag==0) 
-            {
+            if(flag==0) {
                 System.out.println("1. Sign up");
                 System.out.println("2. Login");
-                System.out.println("3. Fetch Bookings");
-                System.out.println("4. Search Trains");
-                System.out.println("5. Book a Seat");
-                System.out.println("6. Cancel my Booking");
-                System.out.println("7. Exit the App");
             }
-            else 
-            {
-                System.out.println("1. Log Out");
-                System.out.println("2. Fetch Bookings");
-                System.out.println("3. Search Trains");
-                System.out.println("4. Book a Seat");
-                System.out.println("5. Cancel my Booking");
-                System.out.println("6. Exit the App");
-            }
+            else System.out.println("1. Log Out");
+
+            System.out.println((3-flag)+". Fetch Bookings");
+            System.out.println((4-flag)+". Search Trains");
+            System.out.println((5-flag)+". Book a Seat");
+            System.out.println((6-flag)+". Cancel my Booking");
+            System.out.println((7-flag)+". Exit the App");
             option = scanner.nextInt();
 
             if(option >= 2 && flag == 1)  option++;
